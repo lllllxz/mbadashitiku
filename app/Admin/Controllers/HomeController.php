@@ -19,7 +19,7 @@ class HomeController extends Controller
             ->row(function (Row $row) {
 
                 $row->column(3, function (Column $column) {
-                    $column->append(Dashboard::environment());
+                    $column->append(view('logic'));
                 });
 
                 $row->column(3, function (Column $column) {

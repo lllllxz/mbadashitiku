@@ -12,6 +12,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
 
-    $router->post('download/logic', 'DownloadController@logic');
+    $router->get('download/logic', 'DownloadController@logic');
 
 });
