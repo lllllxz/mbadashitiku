@@ -14,5 +14,7 @@ Route::group([
 
     $router->get('view/logic', 'LogicController@logic');
     $router->get('view/logic/download', 'LogicController@export_logic');
+    $router->get('view/math', 'MathController@math');
+    $router->get('view/math/download', 'MathController@export_math');
 
 });

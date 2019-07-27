@@ -17,4 +17,9 @@ class Question extends Model
     {
         return $query->where('subject',1);
     }
+
+    public function scopeMath($query)
+    {
+        return $query->where('subject',2);
+    }
 }

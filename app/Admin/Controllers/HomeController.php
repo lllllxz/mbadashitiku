@@ -24,7 +24,7 @@ display: block;text-align: center;margin: 20px 0 10px 0px;\">好好学习  天�
                 });
 
                 $row->column(3, function (Column $column) {
-                    $column->append(Dashboard::extensions());
+                    $column->append(view('math'));
                 });
 
                 $row->column(3, function (Column $column) {

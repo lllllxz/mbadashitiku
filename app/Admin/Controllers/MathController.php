@@ -8,22 +8,19 @@
 
 namespace App\Admin\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use App\Models\Question;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Overtrue\Pinyin\Pinyin;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Style\Font;
 
-class LogicController extends Controller
+class MathController extends Controller
 {
-    public function logic(Request $request)
+    public function math(Request $request)
     {
         $all = $request->all();
-        $datas = Question::logic()->where('knowName',$all['know_name'])->get();
+        $datas = Question::math()->where('knowName',$all['know_name'])->get();
         $datas = $datas->map(function ($item){
             $item['optionList'] = json_decode($item['optionList']);
 
@@ -31,18 +28,18 @@ class LogicController extends Controller
         });
 
         $datas = [
-            'data' => $datas,
+            'data' => $datas->toArray(),
             'title' => $all['know_name']
         ];
-
-        return view('logic_choose',compact('datas'));
+dd($datas);
+        return view('math_choose',compact('datas'));
     }
 
 
-    public function export_logic(Request $request)
+    public function export_math(Request $request)
     {
         $know_name = $request->input('k');
-        $datas = Question::logic()->where('knowName',$know_name)->get();
+        $datas = Question::math()->where('knowName',$know_name)->get();
         $datas = $datas->map(function ($item){
             $item['optionList'] = json_decode($item['optionList']);
 
