@@ -13,6 +13,7 @@
 <div class="container">
     <div class="row">
         <h3 id="export" style="text-align: center">{{ $datas['title'] }}</h3>
+        <a class="btn btn-danger" style="float:right" href="logic/download?k={{ $datas['title'] }}">导出Word</a>
         @foreach($datas['data'] as $data)
             <div class="item" style="padding: 20px;">
                 <h4>【 单项选择 】{{ $loop->iteration }}</h4>
