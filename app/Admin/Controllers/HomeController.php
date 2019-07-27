@@ -13,9 +13,10 @@ class HomeController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->title('Dashboard')
-            ->description('Description...')
-            ->row(Dashboard::title())
+            ->title('考不出来腿打断')
+            ->description(' ')
+            ->row("<div style=\"font-size: 50px;color: #636b6f;font-family: 'Raleway', sans-serif;font-weight: 100;
+display: block;text-align: center;margin: 20px 0 10px 0px;\">好好学习  天天向上</div>")
             ->row(function (Row $row) {
 
                 $row->column(3, function (Column $column) {
