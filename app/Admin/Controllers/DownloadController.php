@@ -27,26 +27,22 @@ class DownloadController extends Controller
             return $item;
         });
 
-//        $this->export($datas);
-
         $datas = [
             'data' => $datas,
             'title' => $all['know_name']
         ];
 
-
-//dd($datas);
         return view('choose',compact('datas'));
     }
 
 
-    public function export($data)
+    public function export_logic($data)
     {
         $word = new PhpWord();
         $section = $word->addSection();
         $word->addFontStyle('rStyle', array('bold'=>true,'color'=>'87CEEB','size'=>35));
         $word->addParagraphStyle('pStyle', array('align'=>'center','spacing'=>120));
-//dd($data->toArray());
+
         foreach($data as $k=>$v){
             $fontStyle = array('color'=>'000000', 'size'=>15,'align'=>'center');
             $word->addFontStyle('myOwnStyle', $fontStyle);
@@ -60,33 +56,8 @@ class DownloadController extends Controller
             $section->addTextBreak();
         }
         $save = IOFactory::createWriter($word,'Word2007');
-        $save->save('test.docx');
+        $save->save(public_path('word/test.docx'));
 
-        header("Content-type:text/html;charset=utf-8");
-         $filename='test.docx';
-         $file_path = iconv("utf-8","gbk",$filename);
-         $fil_name=$filename;
-        if (!file_exists($file_path)){
-             echo  "没有该文件";
-             return;
-         }else{
-             ob_clean();
-             ob_start();
-          $fp = fopen($file_path,"r");
-            $file_size = filesize($file_path);
-            Header("Content-type:application/octet-stream");
-            Header("Accept-Ranges:bytes");
-            Header("Accept-Length:".$file_size);
-            Header("Content-Disposition:attchment; filename=".$fil_name);
-          $buffer=1024;
-            $file_count=0;
-             while (!feof($fp) && $file_count<$file_size ){
-                 $file_con=fread($fp,$buffer);
-                 $file_count +=$buffer;
-              echo $file_con;
-            }
-            fclose($fp);
-            ob_end_flush();
-       }
+        return response()->download(public_path('word/test.docx'),'text.docx');
     }
 }
