@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $datas['title'] }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{ asset('vendor/laravel-admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <h3 style="text-align: center">{{ $datas['title'] }}</h3>
+        <h3 id="export" style="text-align: center">{{ $datas['title'] }}</h3>
         @foreach($datas['data'] as $data)
             <div class="item" style="padding: 20px;">
                 <h4>【 单项选择 】{{ $loop->iteration }}</h4>
@@ -26,7 +27,11 @@
         @endforeach
     </div>
 </div>
-
-
+<script type="text/javascript" >
+    $(function () {
+        var val = $("#export").text();
+        window.open().location='logic/download?k='+val;
+    })
+</script>
 </body>
 </html>

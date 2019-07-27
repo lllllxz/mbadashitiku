@@ -73,7 +73,7 @@
             </ul>
         </div>
         <div class="btn-group pull-left dlbtn">
-            <button type="button" class="btn btn-success"><a href="#" class="download" style="color: #fff;">解释类题目</a></button>
+            <button type="button" class="btn btn-success"><a href="#" class="download" style="color: #fff;">解释</a></button>
         </div>
         <div class="btn-group pull-left dlbtn">
             <button type="button" class="btn btn-info">评价类题目</button>
@@ -87,10 +87,10 @@
             </ul>
         </div>
         <div class="btn-group pull-left dlbtn">
-            <button type="button" class="btn btn-file"><a href="#" class="download">两人对话类</a></button>
+            <button type="button" class="btn btn-file"><a href="#" class="download">两人对话</a></button>
         </div>
         <div class="btn-group pull-left dlbtn">
-            <button type="button" class="btn btn-default"><a href="#" class="download">结论推出类</a></button>
+            <button type="button" class="btn btn-default"><a href="#" class="download">结论推出</a></button>
         </div>
         <div class="btn-group pull-left dlbtn">
             <button type="button" class="btn btn-warning">分析推理类</button>
@@ -134,6 +134,6 @@
 
     $(".download").on('click',function () {
         var val = $(this).text();
-        window.open().location = 'admin/download/logic?know_name='+val;
+        window.open().location = 'admin/view/logic?know_name='+val;
     })
 </script>

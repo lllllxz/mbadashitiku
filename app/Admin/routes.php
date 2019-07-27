@@ -12,6 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
 
-    $router->get('download/logic', 'DownloadController@logic');
+    $router->get('view/logic', 'LogicController@logic');
+    $router->get('view/logic/download', 'LogicController@export_logic');
 
 });
