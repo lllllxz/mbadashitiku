@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->title('考不出来腿打断')
+            ->title('好好学习 天天向上')
             ->description(' ')
             ->row("<div style=\"font-size: 50px;color: #636b6f;font-family: 'Raleway', sans-serif;font-weight: 100;
 display: block;text-align: center;margin: 20px 0 10px 0px;\"><i class='fa fa-pencil'></i> <i class='fa fa-book'></i></div>")
