@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return redirect('admin');
 });
+Route::get('ocr/upload',function (){
+    return view('upload');
+});
+Route::post('ocr/change','OcrController@change');
+Route::post('ocr/export','OcrController@export');
